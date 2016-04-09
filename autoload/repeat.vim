@@ -54,7 +54,7 @@ endfunction
 function! repeat#_do(keyseq, count)  "{{{2
   let keep_p = s:changedtick == b:changedtick
 
-  execute 'normal!' (a:count ? a:count : '').a:keyseq
+  silent execute 'normal!' (a:count ? a:count : '').a:keyseq
 
   if keep_p
     let s:changedtick = b:changedtick
@@ -69,9 +69,9 @@ function! repeat#_repeat(count)  "{{{2
   if s:changedtick == b:changedtick
     let c = s:count == -1 ? '' : (a:count ? a:count : (s:count ? s:count : ''))
       " FIXME: When any of 0-9 key is remapped.
-    execute 'normal' c . s:keyseq
+    silent execute 'normal' c . s:keyseq
   else
-    execute 'normal!' (a:count ? a:count : '').'.'
+    silent execute 'normal!' (a:count ? a:count : '').'.'
   endif
   return
 endfunction
