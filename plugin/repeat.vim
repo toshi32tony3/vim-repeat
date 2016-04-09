@@ -53,6 +53,7 @@ endfunction
 if !exists('g:repeat_no_default_key_mappings')
   RepeatDefaultKeyMappings
 endif
+delcommand RepeatDefaultKeyMappings
 
 
 
